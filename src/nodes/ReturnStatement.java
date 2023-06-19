@@ -69,4 +69,16 @@ public class    ReturnStatement extends Node{
             return str;
         }
     }
+
+    @Override
+    public String toJs() {
+        String str;
+        if(returnValue != null) {
+            str = "return" + " " + returnValue.toJs() + ";";
+            return str;
+        } else{
+            str =  "return;" ;
+            return str;
+        }
+    }
 }

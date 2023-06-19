@@ -55,4 +55,9 @@ public class Argument extends Node{
         str = str.concat("$" + id);
         return str;
     }
+
+    @Override
+    public String toJs() {
+        return id;
+    }
 }

@@ -24,4 +24,11 @@ public class Initialization extends Node{
         str = str.concat(value.codeGenerationImp());
         return str;
     }
+
+    @Override
+    public String toJs() {
+        String str = "= ";
+        str = str.concat(value.toJs());
+        return str;
+    }
 }

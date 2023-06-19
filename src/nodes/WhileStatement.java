@@ -29,4 +29,6 @@ public class WhileStatement extends Statement{
         str = "while" + '(' + condition.codeGenerationImp() + ')' + '\n' + block.codeGenerationImp();
         return str;
     }
+
+
 }

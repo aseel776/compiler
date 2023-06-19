@@ -60,4 +60,10 @@ public class FunctionCall extends Statement{
         str = id + parameters.codeGenerationImp() + ";" ;
         return str;
     }
+    @Override
+    public String toJs() {
+        String str = "";
+        str = id + '(' + parameters.toJs() + ");" ;
+        return str;
+    }
 }

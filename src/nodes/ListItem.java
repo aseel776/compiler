@@ -26,4 +26,9 @@ public class ListItem extends Node{
         str = "$" + listId + "[" + index + "]";
         return str;
     }
+
+    @Override
+    public String toJs() {
+        return listId + '[' + index + ']';
+    }
 }

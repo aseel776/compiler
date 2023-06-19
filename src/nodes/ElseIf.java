@@ -29,4 +29,11 @@ public class ElseIf extends Node{
         str = "else if" + '(' + condition.codeGenerationImp() + ')' + '\n' + block.codeGenerationImp();
         return str;
     }
+
+    @Override
+    public String toJs() {
+        String str ="";
+        str = "else if" + '(' + condition.toJs() + ')' + '\n' + block.toJs();
+        return str;
+    }
 }

@@ -19,4 +19,9 @@ public class InitialConditionAssignment extends InitialConditionVariable{
         str = "$" + id.codeGenerationImp() + '=' + value.codeGenerationImp();
         return str ;
     }
+
+    @Override
+    public String toJs() {
+        return id.toJs() + '=' + value.toJs();
+    }
 }

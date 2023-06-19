@@ -29,4 +29,11 @@ public class SwitchStatement extends Statement{
         str = "switch" + '(' + id.codeGenerationImp() + ')' +  body.codeGenerationImp();
         return str;
     }
+
+    @Override
+    public String toJs() {
+        String str = "";
+        str = "switch" + '(' + id.toJs() + ')' +  body.toJs();
+        return str;
+    }
 }

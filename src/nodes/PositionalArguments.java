@@ -52,4 +52,17 @@ public class PositionalArguments extends Arguments{
         str = str.concat(")");
         return str;
     }
+
+    @Override
+    public String toJs() {
+        String str = "";
+        for(int i = 0; i < args.size(); i++){
+            if(i == args.size() - 1){
+                str = str.concat(args.get(i).toJs());
+            } else{
+                str = str.concat(args.get(i).toJs() + ", ");
+            }
+        }
+        return str;
+    }
 }

@@ -83,4 +83,29 @@ public class IfStatement extends Statement{
             }
         }
     }
+
+    @Override
+    public String toJs() {
+        if(elseIfs != null){
+            String str = "";
+            str = "if" + '(' + condition.toJs() + ')' + '\n' + block.toJs() + '\n';
+            for (ElseIf elseIf :elseIfs) {
+                str = str.concat(elseIf.toJs() + '\n');
+            }
+            str =str.concat(anElse.toJs());
+            return str;
+        }
+        else{
+            if(anElse != null){
+                String str = "";
+                str = "if" + '(' + condition.toJs() + ')' + '\n' + block.toJs() + '\n'+ anElse.toJs();
+                return str;
+            }
+            else{
+                String str = "";
+                str = "if" + '(' + condition.toJs() + ')' + '\n' + block.toJs();
+                return str;
+            }
+        }
+    }
 }

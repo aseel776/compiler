@@ -26,4 +26,9 @@ public class InitialConditionVariable extends InitialCondition{
         str = id.codeGenerationImp();
         return str ;
     }
+
+    @Override
+    public String toJs() {
+        return id.toJs();
+    }
 }

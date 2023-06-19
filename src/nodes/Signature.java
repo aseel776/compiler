@@ -40,4 +40,9 @@ public class Signature extends Node{
         str = id + arguments.codeGenerationImp();
         return str ;
     }
+
+    @Override
+    public String toJs() {
+        return id + '(' + arguments.toJs() + ')';
+    }
 }

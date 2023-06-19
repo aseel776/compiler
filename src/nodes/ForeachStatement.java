@@ -34,4 +34,11 @@ public class ForeachStatement extends Statement{
         str = "foreach" + '('  + list.codeGenerationImp() + " as " +"$" + id + ')' + '\n' + block.codeGenerationImp();
         return str;
     }
+
+    @Override
+    public String toJs() {
+        String str = "";
+        str = "foreach" + '('  + id + " of " + list.toJs() + ')' + '\n' + block.toJs();
+        return str;
+    }
 }

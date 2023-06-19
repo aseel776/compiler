@@ -30,4 +30,11 @@ public class Increment extends Node{
         str = "$" + id.codeGenerationImp() + symbol + expression.codeGenerationImp();
         return str;
     }
+
+    @Override
+    public String toJs() {
+        String str = "";
+        str = id.toJs() + symbol + expression.toJs();
+        return str;
+    }
 }

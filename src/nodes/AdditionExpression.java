@@ -29,4 +29,9 @@ public class AdditionExpression extends Expression{
         str = left.codeGenerationImp() + '+' + right.codeGenerationImp();
         return str ;
     }
+
+    @Override
+    public String toJs() {
+        return left.toJs() + '+' + right.toJs();
+    }
 }

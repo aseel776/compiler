@@ -24,4 +24,11 @@ public class DefaultCase extends Case{
         str = "default:" + caseBody.codeGenerationImp();
         return str;
     }
+
+    @Override
+    public String toJs() {
+        String str = "";
+        str = "default:" + caseBody.toJs();
+        return str;
+    }
 }

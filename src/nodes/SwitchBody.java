@@ -51,4 +51,15 @@ public class SwitchBody extends Node{
         str = str.concat("}");
         return str;
     }
+
+    @Override
+    public String toJs() {
+        String str = "{ \n";
+        for (Case aCase :cases) {
+            str = str.concat(aCase.toJs() + '\n') ;
+        }
+        str = str.concat(defaultCase.toJs() + '\n');
+        str = str.concat("}");
+        return str;
+    }
 }

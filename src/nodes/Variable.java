@@ -46,4 +46,9 @@ public class Variable extends Expression{
         str = "$" + id ;
         return str;
     }
+
+    @Override
+    public String toJs() {
+        return id;
+    }
 }

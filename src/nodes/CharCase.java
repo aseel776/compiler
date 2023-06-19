@@ -28,4 +28,11 @@ public class CharCase extends Case{
         strCase = "case " + "\"" + str + "\"" + ':' + caseBody.codeGenerationImp();
         return strCase;
     }
+
+    @Override
+    public String toJs() {
+        String strCase;
+        strCase = "case " + "\"" + str + "\"" + ':' + caseBody.toJs();
+        return strCase;
+    }
 }

@@ -25,4 +25,11 @@ public class DoWhileStatement extends WhileStatement{
         str = "do" + '\n' + block.codeGenerationImp() + "while" + '(' + condition.codeGenerationImp() + ");" ;
         return str;
     }
+
+    @Override
+    public String toJs() {
+        String str = "";
+        str = "do" + '\n' + block.toJs() + "while" + '(' + condition.toJs() + ");" ;
+        return str;
+    }
 }

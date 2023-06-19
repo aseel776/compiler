@@ -66,4 +66,17 @@ public class Function extends Statement{
         }
 
     }
+
+    @Override
+    public String toJs() {
+        String str;
+        if(isAsync){
+            str = "async function ";
+        } else{
+          str = "function ";
+        }
+        str = str.concat(signature.toJs() + "\n");
+        str = str.concat(functionBody.toJs());
+        return str;
+    }
 }

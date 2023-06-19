@@ -24,4 +24,11 @@ public class Parameter extends Node{
         str = value.codeGenerationImp();
         return str;
     }
+
+    @Override
+    public String toJs() {
+        String str = "";
+        str = value.toJs();
+        return str;
+    }
 }

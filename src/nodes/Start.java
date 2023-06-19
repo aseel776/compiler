@@ -41,26 +41,17 @@ public class Start {
 
         try {
 
-            File mainFile = new File("code_generation/start.php");
-            FileWriter mainFileWriter = null;
-
-            if (mainFile.createNewFile()) {
-                mainFileWriter = new FileWriter(mainFile);
-                mainFileWriter.write("<?php\n");
-            }
-
             for (Node node : nodes) {
 
                 File file;
+                File jsFile;
                 FileWriter fileWriter;
-                String filePath = "./";
+                FileWriter jsFileWriter;
 
                 if (node instanceof DartClass dClass) {
                     file = new File("code_generation/classes", dClass.id + ".php");
-                    filePath = filePath.concat("classes/" + dClass.id + ".php");
                 } else if (node instanceof Function function) {
                     file = new File("code_generation/functions", function.signature.id + ".php");
-                    filePath = filePath.concat("functions/" + function.signature.id + ".php");
                 } else {
                     file = new File("code_generation/crash.php");
                 }
@@ -70,12 +61,17 @@ public class Start {
                     fileWriter.write(node.codeGenerationImp());
                     fileWriter.close();
                 }
-            
-                mainFileWriter.write("require(\"" + filePath + "\");\n");
-            }
 
-            mainFileWriter.write("?>");
-            mainFileWriter.close();
+                if(node instanceof Function function){
+                    jsFile = new File("code_generation/functions", function.signature.id + ".js");
+                    if(jsFile.createNewFile()){
+                        jsFileWriter = new FileWriter(jsFile);
+                        jsFileWriter.write(node.toJs());
+                        jsFileWriter.close();
+                    }
+                }
+
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -94,14 +90,6 @@ public class Start {
         files = dir.listFiles();
         for(File file: files){
             file.delete();
-        }
-        dirPath = "code_generation";
-        dir = new File(dirPath);
-        files = dir.listFiles();
-        for(File file: files){
-            if(file.isFile() && !file.getName().equalsIgnoreCase("bootstrap.css")){
-                file.delete();
-            }
         }
     }
 }

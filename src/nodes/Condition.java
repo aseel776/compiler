@@ -25,4 +25,11 @@ public class Condition extends Node{
         str = str.concat(comparison.codeGenerationImp());
         return str;
     }
+
+    @Override
+    public String toJs() {
+        String str = "";
+        str = str.concat(comparison.toJs());
+        return str;
+    }
 }

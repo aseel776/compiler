@@ -60,4 +60,13 @@ public class PositionalNamedArguments extends Arguments{
         }
         return str;
     }
+
+    @Override
+    public String toJs() {
+        String str = posArgs.toJs();
+        str = str.concat(", ");
+        str = str.concat(namedArgs.toJs());
+        return str;
+    }
+
 }

@@ -40,4 +40,12 @@ public class UnnamedFunction extends Node{
         str = str.concat(functionBody.codeGenerationImp());
         return str;
     }
+
+    @Override
+    public String toJs() {
+        String str = "(";
+        str = str.concat(arguments.toJs());
+        str = str.concat(") => " + functionBody.toJs());
+        return str;
+    }
 }

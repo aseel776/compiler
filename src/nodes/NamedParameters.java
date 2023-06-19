@@ -45,4 +45,17 @@ public class NamedParameters extends Parameters{
         return str;
 
     }
+    @Override
+    public String toJs() {
+        String str = "(";
+        for (int i = 0; i < parameters.size(); i++){
+            if(i == parameters.size() - 1){
+                str = str.concat(parameters.get(i).toJs() );
+            }else{
+                str = str.concat(parameters.get(i).toJs() + ", ");
+            }
+        }
+        return str;
+
+    }
 }

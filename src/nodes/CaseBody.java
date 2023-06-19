@@ -44,4 +44,16 @@ public class CaseBody extends Block{
         }
         return str;
     }
+
+    @Override
+    public String toJs() {
+        String str = "\n";
+        for (Node n : statements) {
+            str = str.concat(n.toJs() + "\n");
+        }
+        if(containsBreak){
+            str = str.concat("break;");
+        }
+        return str;
+    }
 }

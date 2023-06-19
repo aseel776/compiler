@@ -55,4 +55,18 @@ public class DartList extends Node{
         return str;
 
     }
+
+    @Override
+    public String toJs() {
+        String str = "[";
+        for (int i = 0; i < elements.size(); i++){
+            if(i == elements.size() - 1){
+                str = str.concat(elements.get(i).toJs());
+            }else{
+                str = str.concat(elements.get(i).toJs() + ", ");
+            }
+        }
+        str = str.concat("]");
+        return str;
+    }
 }

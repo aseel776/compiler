@@ -27,4 +27,11 @@ public class    NumberCase extends Case{
         str = "case " + number.codeGenerationImp() + ':' + caseBody.codeGenerationImp();
         return str;
     }
+
+    @Override
+    public String toJs() {
+        String str = "";
+        str = "case " + number.toJs() + ':' + caseBody.toJs();
+        return str;
+    }
 }

@@ -75,4 +75,14 @@ public class FinalDeclaration extends Declaration{
         str = str.concat(";");
         return str;
     }
+
+    @Override
+    public String toJs() {
+        String str = "let " + id;
+        if (init != null) {
+            str = str.concat(' ' + init.toJs());
+        }
+        str = str.concat(";");
+        return str;
+    }
 }

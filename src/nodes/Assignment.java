@@ -59,4 +59,9 @@ public class Assignment extends Statement{
         str = "$" + id + "=" + value.codeGenerationImp();
         return str;
     }
+
+    @Override
+    public String toJs() {
+        return id + " = " + value.toJs();
+    }
 }

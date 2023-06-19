@@ -50,4 +50,11 @@ public class InitialConditionDeclaration extends InitialCondition{
         str = "$" + id + '=' +value.codeGenerationImp();
         return str;
     }
+
+    @Override
+    public String toJs() {
+        String str = "";
+        str = "let " + id + '=' +value.codeGenerationImp();
+        return str;
+    }
 }

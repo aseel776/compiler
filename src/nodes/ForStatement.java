@@ -45,4 +45,16 @@ public class ForStatement extends Statement{
         ;
         return str;
     }
+
+    @Override
+    public String toJs() {
+        String str = "";
+        str = "for" + '('
+                + initialCondition.toJs() + ';'
+                + stopCondition.toJs() + ';'
+                + increment.toJs() + ')'
+                + '\n' + block.toJs()
+        ;
+        return str;
+    }
 }

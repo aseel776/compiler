@@ -49,4 +49,12 @@ public class PositionalNamedParameters extends Parameters{
         return str;
 
     }
+
+    @Override
+    public String toJs() {
+        String str = positionalParameters.toJs();
+        str = str.concat(", ");
+        str = str.concat(namedParameters.toJs());
+        return str;
+    }
 }

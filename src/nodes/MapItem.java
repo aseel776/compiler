@@ -26,4 +26,9 @@ public class MapItem extends Node{
         str = "$" + mapId + "[" + key + "]";
         return str;
     }
+
+    @Override
+    public String toJs() {
+        return mapId + "['" + key + "']";
+    }
 }

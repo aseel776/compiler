@@ -24,4 +24,11 @@ public class Else extends Node{
         str = "else" + '\n' + block.codeGenerationImp();
         return str;
     }
+
+    @Override
+    public String toJs() {
+        String str = "";
+        str = "else" + '\n' + block.toJs();
+        return str;
+    }
 }

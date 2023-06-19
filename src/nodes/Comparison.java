@@ -29,4 +29,13 @@ public class Comparison extends Node{
         str = str.concat(right.codeGenerationImp());
         return str;
     }
+
+    @Override
+    public String toJs() {
+        String str = "";
+        str = str.concat(left.toJs());
+        str = str.concat(symbol);
+        str = str.concat(right.toJs());
+        return str;
+    }
 }

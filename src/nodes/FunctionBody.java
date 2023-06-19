@@ -52,4 +52,17 @@ public class FunctionBody extends Block {
         return str;
 
     }
+
+    @Override
+    public String toJs() {
+        String str = "{\n";
+        for (Statement s: statements) {
+            str = str.concat(s.toJs() + "\n");
+        }
+        if(returnStatement != null){
+            str = str.concat(returnStatement.toJs() + "\n");
+        }
+        str = str.concat("}");
+        return str;
+    }
 }

@@ -77,4 +77,12 @@ public class NormalDeclaration extends Declaration{
         return str;
     }
 
+    @Override
+    public String toJs() {
+        String str = "let " + id;
+        if (init != null) {
+            str = str.concat(' ' + init.toJs());
+        }
+        return str;
+    }
 }

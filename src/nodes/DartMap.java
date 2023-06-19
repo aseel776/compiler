@@ -61,4 +61,20 @@ public class DartMap extends Node{
         return str;
 
     }
+
+    @Override
+    public String toJs() {
+        String str = "{\n";
+        for(int i = 0; i < elements.size(); i++){
+            String key = elements.get(i).a;
+            String value = elements.get(i).b.toJs();
+            if(i == elements.size() - 1){
+                str = str.concat(key + ": " + value);
+            }else{
+                str = str.concat(key + ": " + value + ", \n");
+            }
+        }
+        str = str.concat("\n}");
+        return str;
+    }
 }

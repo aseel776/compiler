@@ -65,4 +65,12 @@ public class ConstDeclaration extends Declaration{
         str = str.concat(";");
         return str;
     }
+
+    @Override
+    public String toJs() {
+        String str = "const " + id;
+        str = str.concat(' ' + init.toJs());
+        str = str.concat(";");
+        return str;
+    }
 }

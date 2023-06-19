@@ -43,4 +43,14 @@ public class Block extends Node{
         str =str.concat("\n}");
         return str;
     }
+
+    @Override
+    public String toJs() {
+        String str= "{\n";
+        for (Node n : statements){
+            str = str.concat(n.toJs());
+        }
+        str =str.concat("\n}");
+        return str;
+    }
 }
