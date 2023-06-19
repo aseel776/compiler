@@ -1,11 +1,13 @@
 package flutter;
 
-public class ImageFit extends ImageAtt{
+import java.io.Console;
 
-    public String imageFit ;
+public class ImageFit extends ImageAtt {
 
-    public ImageFit(String imageFit ){
-        this.imageFit= imageFit;
+    public String imageFit;
+
+    public ImageFit(String imageFit) {
+        this.imageFit = imageFit;
     }
 
     @Override
@@ -22,8 +24,21 @@ public class ImageFit extends ImageAtt{
 
     @Override
     public String codeGenerationImp() {
-        // TODO add fit for image
-        String style = "";
-        return style;
+        String fit;
+        System.out.println("imageFit");
+        System.out.println(imageFit);
+        System.out.println(imageFit);
+        if (imageFit == "BoxFit.cover") {
+            fit = "cover";
+        } else if (imageFit == "BoxFit.fill") {
+            fit = "fill";
+        } else {
+            fit = "contain";
+        }
+
+        String top = " style = ' object-fit: " + fit + ";' ";
+
+        return top;
     }
+
 }

@@ -73,8 +73,8 @@ public class Utils {
     }
 
     public static String getBootstrapColor(String flutterColorName) {
-        String[] flutterColor = { "Blue", "Gray", "Green", "Red", "Yellow", "Black", "White" };
-        String[] bootstrapColor = { "primary", "secondary", "success", "danger", "warning", "dark", "white" };
+        String[] flutterColor = { "Blue", "Green", "Red", "Yellow", "Black", "White" };
+        String[] bootstrapColor = { "primary",  "success", "danger", "warning", "dark", "white" };
 
         int index = -1;
         for (int i = 0; i < flutterColor.length; i++) {

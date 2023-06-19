@@ -29,9 +29,11 @@ public class TextStyle extends TextAtt {
             className = "fst-italic";
         else if (style == "Bold")
             className = "fw-bold";
+        else if(style== "BoldItalic")
+            className = "fst-italic fw-bold"; 
         else
-            className = ""; //   // TODO fst-italic fw-bold
-
+            className="";
+    
         top = Utils.addClassToParentElementByScript(top, className);
 
 

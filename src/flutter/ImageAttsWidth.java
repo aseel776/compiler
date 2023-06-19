@@ -24,6 +24,6 @@ public class ImageAttsWidth extends ImageAtt{
 
     @Override
     public String codeGenerationImp() {
-        return "width='" + number + "'";
+        return " width='" + number + "' ";
     }
 }

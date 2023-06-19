@@ -21,7 +21,7 @@ public class ImageAttsHeight extends ImageAtt{
     }
     @Override
     public String codeGenerationImp() {
-        return "height='"+number+ "'";
+        return " height='"+number+ "' ";
     }
 
 }

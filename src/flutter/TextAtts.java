@@ -43,11 +43,15 @@ public  class TextAtts extends Parameters {
 
     @Override
     public String codeGenerationImp() {
-        String top = Utils.setCommentWidgetName("TextAtts", this.hashCode());
+        if(textAtt!=null){
+            String top = Utils.setCommentWidgetName("TextAtts", this.hashCode());
         for (int i = 0; i < textAtt.size(); i++) {
             top = top.concat(textAtt.get(i).codeGenerationImp());
             top =top.concat("\n");
         }
         return top;
+        }else{
+            return "";
+        }
     }
 }

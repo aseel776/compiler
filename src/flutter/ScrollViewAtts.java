@@ -44,6 +44,8 @@ public class ScrollViewAtts extends Parameters {
 
     @Override
     public String codeGenerationImp() {
+        if (atts != null) {
+
         String direction = "";
         String child = "";
 
@@ -59,5 +61,7 @@ public class ScrollViewAtts extends Parameters {
         top=top.concat("</div> \n");
 
         return top;
+    }
+    return "";
     }
 }

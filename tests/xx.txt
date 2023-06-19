@@ -1,0 +1,11 @@
+class Page1 extends StatelessWidget{
+    build(){
+        return new MaterialApp(
+            title: 'SecondPage',
+            home: new Scaffold(
+                backgroundColor: Yelgit low,
+                body: new Text('sss'),
+            )
+        );
+    }
+}

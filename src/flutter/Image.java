@@ -40,12 +40,10 @@ public class Image extends Component{
 
     @Override
     public String codeGenerationImp() {
+        String hash =  "unique"+this.hashCode();
         String top = Utils.setCommentWidgetName("Image", this.hashCode());
-
         String atts =imageAtts.codeGenerationImp();
-        top=top.concat("<img src='"+src+"'"+   atts +  " >");
-
-        // TODO Fit
+        top=top.concat("<img  src='"+src+"'"+   atts +  " >");
         return null;
     }
 }

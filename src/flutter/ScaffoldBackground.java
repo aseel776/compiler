@@ -26,10 +26,18 @@ public class ScaffoldBackground extends ScaffoldAtt{
         // String classes[] = {/"bg-" + color + "')", "w-100", "h-100" };
 
         String top = Utils.setCommentWidgetName("ScaffoldBackground", this.hashCode());
-        top=top.concat(" <script>");
-        top=top.concat(" var parentDiv =document.querySelector('body');");
-        top=top.concat("parentDiv.classList.add('bg-danger');");
-        top=top.concat("</script>");
+        top=top.concat("<script>\n");
+        
+        top=top.concat("var parentDiv = document.currentScript.parentNode;\n");
+        top=top.concat("parentDiv = parentDiv.parentNode;\n");
+        top=top.concat("parentDiv = parentDiv.parentNode;\n");
+        
+        top=top.concat("parentDiv.classList.add(" + "'bg-"+Utils.getBootstrapColor(color) +"'" + ")\n");
+        
+        top=top.concat("</script>\n");
+
+        top=top.concat(Utils.addClassToParentElementByScript(top, "'bg-"+Utils.getBootstrapColor(color) +"'"));
+    
         return top;
     }
 }

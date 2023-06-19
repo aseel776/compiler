@@ -22,7 +22,6 @@ public class StackFit extends StackAtt{
 
     @Override
     public String codeGenerationImp() {
-        //TODO
         String top = Utils.setCommentWidgetName("stackFit", this.hashCode());
         top =top.concat("<!-- not found in bootstrap-->");
         return top;

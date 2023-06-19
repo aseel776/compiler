@@ -44,7 +44,9 @@ public class Text extends Component {
         String top  = Utils.setCommentWidgetName("Text", this.hashCode());
         top =top.concat("<div>");
         top =top.concat(text);
-        top =top.concat(textAtts.codeGenerationImp());
+        if(textAtts!= null){
+            top =top.concat(textAtts.codeGenerationImp());
+        }
         top =top.concat("</div>");
         return top;
 

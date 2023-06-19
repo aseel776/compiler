@@ -7,15 +7,15 @@ import java.util.List;
 public class ImageAtts extends Parameters {
     public List<ImageAtt> atts;
 
-    public ImageAtts(List<ImageAtt> atts){
+    public ImageAtts(List<ImageAtt> atts) {
         this.atts = atts;
     }
 
-    public ImageAtts(){
+    public ImageAtts() {
         atts = new ArrayList<>();
     }
 
-    public void addAtt(ImageAtt att){
+    public void addAtt(ImageAtt att) {
         atts.add(att);
     }
 
@@ -35,7 +35,7 @@ public class ImageAtts extends Parameters {
     @Override
     public StringBuilder astImp() {
         StringBuilder str = new StringBuilder("image atts");
-        for (ImageAtt att: atts) {
+        for (ImageAtt att : atts) {
             str.append("\n\t\t").append(att.astImp());
         }
         return str;
@@ -43,11 +43,15 @@ public class ImageAtts extends Parameters {
 
     @Override
     public String codeGenerationImp() {
-        String top = Utils.setCommentWidgetName("Image", this.hashCode());
-        for (int i = 0; i < atts.size(); i++) {
-            top = top.concat(atts.get(i).toString());
+        if (atts != null) {
+
+            String top = Utils.setCommentWidgetName("Image", this.hashCode());
+            for (int i = 0; i < atts.size(); i++) {
+                top = top.concat(atts.get(i).toString());
+            }
+            return top;
         }
-        return top;
+        return "";
     }
 
 }

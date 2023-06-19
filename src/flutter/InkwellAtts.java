@@ -9,35 +9,39 @@ public class InkwellAtts extends Parameters {
 
     List<InkWellAtt> atts;
 
-    public InkwellAtts(List<InkWellAtt> atts){
+    public InkwellAtts(List<InkWellAtt> atts) {
         this.atts = atts;
     }
 
-    public InkwellAtts(){
+    public InkwellAtts() {
         atts = new ArrayList<>();
     }
 
-    public void addAtt(InkWellAtt att){
+    public void addAtt(InkWellAtt att) {
         atts.add(att);
     }
 
     @Override
     public String toString() {
-        String top = "";
-        for (int i = 0; i < atts.size(); i++) {
-            if (i == atts.size() - 1) {
-                top = top.concat(atts.get(i).toString() + "\n");
-            } else {
-                top = top.concat(atts.get(i).toString() + "," + "\n");
+        if (atts != null) {
+
+            String top = "";
+            for (int i = 0; i < atts.size(); i++) {
+                if (i == atts.size() - 1) {
+                    top = top.concat(atts.get(i).toString() + "\n");
+                } else {
+                    top = top.concat(atts.get(i).toString() + "," + "\n");
+                }
             }
+            return top;
         }
-        return top;
+        return "";
     }
 
     @Override
     public StringBuilder astImp() {
         StringBuilder str = new StringBuilder("inkwell atts");
-        for (InkWellAtt att: atts){
+        for (InkWellAtt att : atts) {
             str.append("\n\t\t").append(att.astImp());
         }
         return str;
@@ -48,7 +52,7 @@ public class InkwellAtts extends Parameters {
         String top = Utils.setCommentWidgetName("InkwellAtts", this.hashCode());
         for (int i = 0; i < atts.size(); i++) {
             top = top.concat(atts.get(i).codeGenerationImp());
-            top =top.concat("\n");
+            top = top.concat("\n");
         }
         return top;
     }

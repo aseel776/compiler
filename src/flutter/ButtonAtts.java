@@ -8,15 +8,15 @@ public class ButtonAtts extends Parameters {
 
     public List<ButtonAtt> atts;
 
-    public ButtonAtts(List<ButtonAtt> atts){
+    public ButtonAtts(List<ButtonAtt> atts) {
         this.atts = atts;
     }
 
-    public ButtonAtts(){
+    public ButtonAtts() {
         atts = new ArrayList<>();
     }
 
-    public void addAtt(ButtonAtt att){
+    public void addAtt(ButtonAtt att) {
         atts.add(att);
     }
 
@@ -44,11 +44,16 @@ public class ButtonAtts extends Parameters {
 
     @Override
     public String codeGenerationImp() {
-        String top = Utils.setCommentWidgetName("ButtonAtts", this.hashCode());
-        for (int i = 0; i < atts.size(); i++) {
-            top = top.concat(atts.get(i).codeGenerationImp());
-            top =top.concat("\n");
+
+        if (atts != null) {
+
+            String top = Utils.setCommentWidgetName("ButtonAtts", this.hashCode());
+            for (int i = 0; i < atts.size(); i++) {
+                top = top.concat(atts.get(i).codeGenerationImp());
+                top = top.concat("\n");
+            }
+            return top;
         }
-        return top;
+        return "";
     }
 }
