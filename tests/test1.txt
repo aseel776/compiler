@@ -1,0 +1,74 @@
+class productPage{
+
+    productCard() {
+        return new InkWell(
+            inkWellOnTap: () {},
+            inkWellChild: new Container(
+                containerChild: new Column(
+                    children: [
+                        new Text('Product'),
+                        new Image(
+                            'Image',
+                            fit: BoxFit.cover,
+                        )
+                    ],
+                mainAxisAlignment: spaceBetween,
+                crossAxisAlignment: center
+            ),
+        ),
+      );
+    }
+
+    build() {
+        return new Scaffold(
+            backgroundColor: Red,
+            body:new Row(
+                mainAxisAlignment: spaceBetween
+                children: [
+                    new Column(
+                        children: [
+                            new Text(
+                                'Product',
+                                textSize: 24,
+                                textStyle: Bold
+                            ),
+                            new SizedBox(
+                                sizedBoxHeight: 10,
+                            ),
+                            new Image(
+                                'pathToImage',
+                                fit: BoxFit.fill,
+                            ),
+                            new  SizedBox(
+                                sizedBoxHeight: 10,
+                            ),
+                            new Text(
+                                'ProductDescription',
+                                textSize: 16,
+                                textStyle: Italic
+                            )
+                        ],
+                    ),
+                    new Padding(
+                        values: Values.symmetric(horizontal: 2),
+                        paddingChild: new ScrollView(
+                            scrollDirection: horizontal,
+                            scrollChild: new Column(
+                                children: [
+                                    productCard(),
+                                    productCard(),
+                                    productCard()
+                                ],
+                            )
+                        )
+                    )
+                ],
+            ),
+        );
+    }
+}
+
+void main(){
+    var page = new productPage();
+    page.build();
+}

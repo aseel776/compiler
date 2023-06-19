@@ -1,0 +1,39 @@
+class a{
+    int a1 = 0;
+    double a2 = a1;
+    String a3 = 'test';
+
+    int t2(){
+        int c = 0;
+        return c;
+    }
+
+    void tt(){
+        int c1 = t2();
+        String c2 = t2();
+    }
+}
+
+class b extends a{
+
+    void t1(){
+        int c1 = a1;
+        c1 = a2;
+        while(c1 > 0){
+            c1 = c1 + 2;
+        }
+   }
+}
+
+class c extends d{
+}
+
+void main(){
+    Object as = new a();
+    dynamic be = new b();
+    as = be;
+    be = 3;
+    be = as + no;
+    bool xx = 3;
+    return xx;
+}
