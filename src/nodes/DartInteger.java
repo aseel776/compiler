@@ -24,4 +24,9 @@ public class DartInteger extends Number {
         str = String.valueOf(number);
         return str;
     }
+
+    @Override
+    public String toJs() {
+        return String.valueOf(number);
+    }
 }

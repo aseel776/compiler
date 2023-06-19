@@ -22,4 +22,9 @@ public class Characters extends Node{
     public String codeGenerationImp() {
         return "\"" + text + "\"";
     }
+
+    @Override
+    public String toJs() {
+        return codeGenerationImp();
+    }
 }

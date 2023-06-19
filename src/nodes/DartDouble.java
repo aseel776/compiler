@@ -24,4 +24,9 @@ public class DartDouble extends Number {
         str = String.valueOf(num);
         return str;
     }
+
+    @Override
+    public String toJs() {
+        return String.valueOf(num);
+    }
 }
