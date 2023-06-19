@@ -38,7 +38,9 @@ public class Button extends Component{
         String top = Utils.setCommentWidgetName("Button", this.hashCode());
         top =top.concat("<button>");
         top =top.concat("\n");
-        top =top.concat(buttonAtts.codeGenerationImp());
+        if(buttonAtts != null){
+            top =top.concat(buttonAtts.codeGenerationImp());
+        }
         top =top.concat("\n");
         top =top.concat("</button>");
         return top;

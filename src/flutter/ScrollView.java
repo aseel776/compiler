@@ -37,7 +37,9 @@ public class ScrollView extends Component{
     public String codeGenerationImp() {
         String top = Utils.setCommentWidgetName("ScrollView", this.hashCode());
         top=top.concat("<div class = 'overflow-scroll ' > \n");
-        top=top.concat(scrollViewAtts.codeGenerationImp()+"\n");
+        if(scrollViewAtts != null){
+            top=top.concat(scrollViewAtts.codeGenerationImp()+"\n");
+        }
         top=top.concat("</div> \n");
 
         return  top;

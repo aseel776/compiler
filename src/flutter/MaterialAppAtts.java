@@ -43,15 +43,11 @@ public class MaterialAppAtts extends Parameters {
 
     @Override
     public String codeGenerationImp() {
-        if (atts != null) {
-
         String top = Utils.setCommentWidgetName("MaterialAppAtts",this.hashCode());
         for (int i = 0; i < atts.size(); i++) {
             top = top.concat(atts.get(i).codeGenerationImp());
             top =top.concat("\n");
         }
         return top;
-    }
-    return "";
     }
 }

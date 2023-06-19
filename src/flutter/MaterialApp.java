@@ -36,11 +36,13 @@ public class MaterialApp extends Component {
     public String codeGenerationImp() {
         String top = Utils.setCommentWidgetName("MaterialApp", this.hashCode());
 
-        top = top.concat(" <link rel='stylesheet' href='code_generation/bootstrap.css'> \n");
+        top = top.concat(" <link rel='stylesheet' href='../bootstrap.css'> \n");
         top = top.concat("<body  style='background:gray ; display:flex; justify-content:center;align-items:center'>\n");
         top = top.concat("<div  style='width : 300px; height : 600px; background:gray' "+ Utils.setClassName("container") + ">");
         top = top.concat("\n");
-        top = top.concat(materialAppAtts.codeGenerationImp());
+        if(materialAppAtts != null){
+            top = top.concat(materialAppAtts.codeGenerationImp());
+        }
         top = top.concat("\n");
         top = top.concat("</div>");
         top = top.concat("</body>");

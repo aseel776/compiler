@@ -23,7 +23,6 @@ public class Button_OnTap_unnamedFunction extends Button_OnTap{
 
     @Override
     public String codeGenerationImp() {
-        String args = unnamedFunction.codeGenerationImp();
-        return args;
+        return unnamedFunction.toJs();
     }
 }

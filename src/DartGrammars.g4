@@ -348,7 +348,7 @@ stackChildren
 
 
 text:
-    NEW TEXT '(' CHARACTERS COMMA? textAtts* ')'
+    NEW TEXT '(' (CHARACTERS | ID) COMMA? textAtts* ')'
     ;
 textAtts
     : textColor

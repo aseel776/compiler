@@ -1,5 +1,6 @@
 package nodes;
 
+import flutter.Component;
 import org.antlr.v4.runtime.misc.Pair;
 import symbolTable.SymbolTableTraveller;
 import utils.Type;
@@ -94,6 +95,14 @@ public class DartClass extends Node {
                 for (ClassMethod method : classBody.methods) {
                     if (method.signature.id.equalsIgnoreCase("build")) {
                         build = method;
+                    } else if (method instanceof NormalClassMethod normalClassMethod) {
+                        if (normalClassMethod.methodBody.returnStatement.returnValue instanceof Component) {
+                            build = normalClassMethod;
+                        }
+                    } else if (method instanceof StaticClassMethod staticClassMethod) {
+                        if (staticClassMethod.methodBody.returnStatement.returnValue instanceof Component) {
+                            build = staticClassMethod;
+                        }
                     }
                 }
                 assert build != null;
@@ -112,8 +121,7 @@ public class DartClass extends Node {
                 str = str.concat(classBody.codeGenerationImp());
                 return str;
             }
-        }
-        else{
+        } else {
             String str = "";
             if (isAbstract) {
                 str = "abstract class" + " " + id + " ";

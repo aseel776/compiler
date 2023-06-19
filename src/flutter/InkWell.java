@@ -39,7 +39,9 @@ public class InkWell extends Component{
         String top = Utils.setCommentWidgetName("InkWell", this.hashCode());
         top =top.concat("<button>");
         top =top.concat("\n");
-        top =top.concat(inkwellAtts.codeGenerationImp());
+        if(inkwellAtts != null){
+            top =top.concat(inkwellAtts.codeGenerationImp());
+        }
         top =top.concat("\n");
         top =top.concat("</button>");
         return top;

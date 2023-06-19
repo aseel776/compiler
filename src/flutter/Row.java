@@ -35,13 +35,15 @@ public class Row extends Component{
 
     @Override
     public String codeGenerationImp() {
-        String classes []= {"d-flex", "flex-column"};
+        String classes []= {"d-flex ", "flex-row"};
 
         String top= Utils.setCommentWidgetName("Row", this.hashCode());
 
-        top =top.concat( "<div"+ Utils.setClassesNames(classes) +">" );
+        top =top.concat( "<div "+ Utils.setClassesNames(classes) +">" );
         top =top.concat("\n");
-        top =top.concat( rowAtts.codeGenerationImp());
+        if(rowAtts != null){
+            top =top.concat( rowAtts.codeGenerationImp());
+        }
         top =top.concat("\n");
         top =top.concat("</div>");
         return top;

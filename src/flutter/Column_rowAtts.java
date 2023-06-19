@@ -1,6 +1,7 @@
 package flutter;
 
 import nodes.Parameters;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,16 +44,11 @@ public class Column_rowAtts extends Parameters {
 
     @Override
     public String codeGenerationImp() {
-        if (column_rowAtt != null) {
-
-            String top = Utils.setCommentWidgetName("Column_rowAtts", this.hashCode());
-
-            for (int i = 0; i < column_rowAtt.size(); i++) {
-                top = top.concat(column_rowAtt.get(i).codeGenerationImp());
-                top = top.concat("\n");
-            }
-            return top;
+        String top = Utils.setCommentWidgetName("Column_rowAtts", this.hashCode());
+        for (int i = 0; i < column_rowAtt.size(); i++) {
+            top = top.concat(column_rowAtt.get(i).codeGenerationImp());
+            top = top.concat("\n");
         }
-        return "";
+        return top;
     }
 }

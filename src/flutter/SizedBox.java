@@ -39,7 +39,9 @@ public class SizedBox extends Component {
         String top = Utils.setCommentWidgetName("SizedBox", this.hashCode());
         top =top.concat("<div class='d-block'>");
         top =top.concat("\n");
-        top =top.concat(sizedBoxAtts.codeGenerationImp());
+        if(sizedBoxAtts != null){
+            top =top.concat(sizedBoxAtts.codeGenerationImp());
+        }
         top =top.concat("\n");
         top =top.concat("</div>");
         return top;

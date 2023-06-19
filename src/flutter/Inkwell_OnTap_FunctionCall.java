@@ -23,7 +23,6 @@ public class Inkwell_OnTap_FunctionCall extends Inkwell_OnTap{
 
     @Override
     public String codeGenerationImp() {
-        // TODO Auto-generated method stub
-        return null;
+        return functionCall.toJs();
     }
 }

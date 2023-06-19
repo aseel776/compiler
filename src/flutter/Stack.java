@@ -41,7 +41,9 @@ public class Stack extends Component{
 
         top =top.concat("<div" + Utils.setClassesNames(classes) + ">");
         top =top.concat("\n");
-        top =top.concat(stackAtts.codeGenerationImp());
+        if(stackAtts != null){
+            top =top.concat(stackAtts.codeGenerationImp());
+        }
         top =top.concat("\n");
         top =top.concat("</div>");
 

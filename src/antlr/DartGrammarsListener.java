@@ -1,4 +1,4 @@
-package antlr;// Generated from D:/Users/ASUS/Desktop/IntelliJ Projects/DartCompiler/src\DartGrammars.g4 by ANTLR 4.10.1
+package antlr;// Generated from D:/Users/ASUS/Desktop/IntelliJ Projects/Compiler/src\DartGrammars.g4 by ANTLR 4.10.1
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**

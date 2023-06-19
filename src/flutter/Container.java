@@ -38,7 +38,9 @@ public class Container extends Component{
         String top = Utils.setCommentWidgetName("Container", this.hashCode());
         top =top.concat("<div>");
         top =top.concat("\n");
-        top =top.concat(containerAtts.codeGenerationImp());
+        if(containerAtts != null){
+            top =top.concat(containerAtts.codeGenerationImp());
+        }
         top =top.concat("\n");
         top =top.concat("</div>");
         return top;

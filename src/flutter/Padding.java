@@ -38,7 +38,9 @@ public class Padding extends Component{
         String top = Utils.setCommentWidgetName("Padding", this.hashCode());
         top =top.concat("<div>");
         top =top.concat("\n");
-        top =top.concat(paddingAtts.codeGenerationImp());
+        if (paddingAtts != null){
+            top =top.concat(paddingAtts.codeGenerationImp());
+        }
         top =top.concat("\n");
         top =top.concat("</div>");
         return top;

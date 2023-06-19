@@ -1,4 +1,4 @@
-class productPage{
+class productPage extends StatelessWidget{
 
     productCard() {
         return new InkWell(
@@ -71,4 +71,5 @@ class productPage{
 void main(){
     var page = new productPage();
     page.build();
+    return;
 }

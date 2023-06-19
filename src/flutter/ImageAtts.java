@@ -1,6 +1,7 @@
 package flutter;
 
 import nodes.Parameters;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,15 +44,11 @@ public class ImageAtts extends Parameters {
 
     @Override
     public String codeGenerationImp() {
-        if (atts != null) {
-
-            String top = Utils.setCommentWidgetName("Image", this.hashCode());
-            for (int i = 0; i < atts.size(); i++) {
-                top = top.concat(atts.get(i).toString());
-            }
-            return top;
+        String top = "";
+        for (int i = 0; i < atts.size(); i++) {
+            top = top.concat(atts.get(i).toString());
         }
-        return "";
+        return top;
     }
 
 }

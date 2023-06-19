@@ -1,27 +1,29 @@
 package flutter;
 
 import nodes.Parameters;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public  class TextAtts extends Parameters {
+public class TextAtts extends Parameters {
 
     public List<TextAtt> textAtt;
 
-    public  TextAtts(List<TextAtt>textAtt){
-        this.textAtt=textAtt;
+    public TextAtts(List<TextAtt> textAtt) {
+        this.textAtt = textAtt;
     }
 
-    public  TextAtts(){
-        this.textAtt= new ArrayList<>();
+    public TextAtts() {
+        this.textAtt = new ArrayList<>();
     }
-    public void addAtt(TextAtt textAtt){
+
+    public void addAtt(TextAtt textAtt) {
         this.textAtt.add(textAtt);
     }
 
     @Override
     public String toString() {
-        String top="" ;
+        String top = "";
         for (int i = 0; i < textAtt.size(); i++) {
             if (i == textAtt.size() - 1) {
                 top = top.concat(textAtt.get(i).toString() + "\n");
@@ -29,13 +31,13 @@ public  class TextAtts extends Parameters {
                 top = top.concat(textAtt.get(i).toString() + "," + "\n");
             }
         }
-        return top ;
+        return top;
     }
 
     @Override
     public StringBuilder astImp() {
         StringBuilder str = new StringBuilder("text atts");
-        for (TextAtt att: textAtt){
+        for (TextAtt att : textAtt) {
             str.append("\n\t\t").append(att.astImp());
         }
         return str;
@@ -43,15 +45,12 @@ public  class TextAtts extends Parameters {
 
     @Override
     public String codeGenerationImp() {
-        if(textAtt!=null){
-            String top = Utils.setCommentWidgetName("TextAtts", this.hashCode());
+        String top = Utils.setCommentWidgetName("TextAtts", this.hashCode());
         for (int i = 0; i < textAtt.size(); i++) {
             top = top.concat(textAtt.get(i).codeGenerationImp());
-            top =top.concat("\n");
+            top = top.concat("\n");
         }
         return top;
-        }else{
-            return "";
-        }
     }
+
 }

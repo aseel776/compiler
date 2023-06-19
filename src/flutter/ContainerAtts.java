@@ -1,6 +1,7 @@
 package flutter;
 
 import nodes.Parameters;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,15 +44,11 @@ public class ContainerAtts extends Parameters {
 
     @Override
     public String codeGenerationImp() {
-        if (containerAtt != null) {
-
-            String top = Utils.setCommentWidgetName("ContainerAtts", this.hashCode());
-            for (int i = 0; i < containerAtt.size(); i++) {
-                top = top.concat(containerAtt.get(i).codeGenerationImp());
-                top = top.concat("\n");
-            }
-            return top;
+        String top = Utils.setCommentWidgetName("ContainerAtts", this.hashCode());
+        for (int i = 0; i < containerAtt.size(); i++) {
+            top = top.concat(containerAtt.get(i).codeGenerationImp());
+            top = top.concat("\n");
         }
-        return "";
+        return top;
     }
 }

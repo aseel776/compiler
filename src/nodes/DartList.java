@@ -53,7 +53,6 @@ public class DartList extends Node{
         }
         str = str.concat(")");
         return str;
-
     }
 
     @Override

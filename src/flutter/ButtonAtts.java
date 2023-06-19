@@ -1,6 +1,7 @@
 package flutter;
 
 import nodes.Parameters;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +37,7 @@ public class ButtonAtts extends Parameters {
     @Override
     public StringBuilder astImp() {
         StringBuilder str = new StringBuilder("button atts");
-        for (ButtonAtt b: atts) {
+        for (ButtonAtt b : atts) {
             str.append("\n\t\t").append(b.astImp());
         }
         return str;
@@ -44,16 +45,11 @@ public class ButtonAtts extends Parameters {
 
     @Override
     public String codeGenerationImp() {
-
-        if (atts != null) {
-
-            String top = Utils.setCommentWidgetName("ButtonAtts", this.hashCode());
-            for (int i = 0; i < atts.size(); i++) {
-                top = top.concat(atts.get(i).codeGenerationImp());
-                top = top.concat("\n");
-            }
-            return top;
+        String top = Utils.setCommentWidgetName("ButtonAtts", this.hashCode());
+        for (int i = 0; i < atts.size(); i++) {
+            top = top.concat(atts.get(i).codeGenerationImp());
+            top = top.concat("\n");
         }
-        return "";
+        return top;
     }
 }
