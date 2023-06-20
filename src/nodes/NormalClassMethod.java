@@ -74,10 +74,33 @@ public class NormalClassMethod extends ClassMethod{
                 str = str.concat(methodBody.codeGenerationImp());
                 return str;
             }else{
-                return methodBody.returnStatement.returnValue.codeGenerationImp();
+                if(!methodBody.statements.isEmpty()){
+                    String str = "<script>\n";
+                    for(Statement s : methodBody.statements){
+                        str = str.concat(s.toJs() + "\n");
+                    }
+                    str = str.concat("</script>\n");
+                    str = str.concat(methodBody.returnStatement.returnValue.codeGenerationImp());
+                    return str;
+                }else{
+                    return methodBody.returnStatement.returnValue.codeGenerationImp();
+                }
             }
         }else{
             return "return ;";
         }
+    }
+
+    @Override
+    public String toJs() {
+        String str;
+        if(isAsync){
+            str = "async function ";
+        }else{
+            str = "function ";
+        }
+        str = str.concat(signature.toJs());
+        str = str.concat(methodBody.toJs());
+        return str;
     }
 }

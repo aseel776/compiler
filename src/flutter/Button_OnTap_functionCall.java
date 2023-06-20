@@ -23,6 +23,17 @@ public class Button_OnTap_functionCall extends Button_OnTap{
 
     @Override
     public String codeGenerationImp() {
-        return functionCall.toJs();
+        String top ="";
+
+        top=top.concat("<script src='functions/"+functionCall.id+".js'></script>");
+        top=top.concat("<script>");
+
+        top=top.concat("var parentDiv = document.currentScript.parentNode;");
+
+        top=top.concat("parentDiv.addEventListener('click', ()=>"+ functionCall.toJs()+");" );
+
+        top=top.concat("</script>");
+
+        return top;
     }
 }

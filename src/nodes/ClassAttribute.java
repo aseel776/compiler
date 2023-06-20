@@ -38,4 +38,9 @@ public class ClassAttribute extends Node {
         }
         return str;
     }
+
+    @Override
+    public String toJs() {
+        return declaration.toJs();
+    }
 }

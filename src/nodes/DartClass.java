@@ -91,22 +91,7 @@ public class DartClass extends Node {
     public String codeGenerationImp() {
         if (superClass != null) {
             if (superClass.equalsIgnoreCase("StatelessWidget") || superClass.equalsIgnoreCase("StatefulWidget")) {
-                ClassMethod build = null;
-                for (ClassMethod method : classBody.methods) {
-                    if (method.signature.id.equalsIgnoreCase("build")) {
-                        build = method;
-                    } else if (method instanceof NormalClassMethod normalClassMethod) {
-                        if (normalClassMethod.methodBody.returnStatement.returnValue instanceof Component) {
-                            build = normalClassMethod;
-                        }
-                    } else if (method instanceof StaticClassMethod staticClassMethod) {
-                        if (staticClassMethod.methodBody.returnStatement.returnValue instanceof Component) {
-                            build = staticClassMethod;
-                        }
-                    }
-                }
-                assert build != null;
-                return build.codeGenerationImp();
+                return classBody.toJs();
             } else {
                 String str = "";
                 if (isAbstract) {
@@ -135,28 +120,4 @@ public class DartClass extends Node {
             return str;
         }
     }
-
-    // @Override
-    // public String codeGenerationImp() {
-    //     String str = """
-    //             <!DOCTYPE html>
-    //             <html lang="en">
-    //             <head>
-    //             <meta charset="UTF-8">
-    //             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    //             <title>""";
-    //     str = str.concat(id);
-    //     str = str.concat("""
-    //             </title>
-    //             </head>
-    //             <body>""");
-    //     str = str.concat('\n' + classBody.codeGenerationImp());
-    //     str = str.concat("""
-    //             \n</body>
-    //             </html>
-    //             """);
-
-    //     return str;
-    // }
-
 }

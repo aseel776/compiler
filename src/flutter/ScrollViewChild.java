@@ -24,12 +24,7 @@ public class ScrollViewChild extends ScrollViewAtt{
 
     @Override
     public String codeGenerationImp() {
-        String top =object.codeGenerationImp();
-
-        // String top = "<div class=''>";
-        // top=top.concat(object.codeGenerationImp());
-        // top=top.concat("</div>");
-        return top;
+        return object.codeGenerationImp();
     }
 }
 

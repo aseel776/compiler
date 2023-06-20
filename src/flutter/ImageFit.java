@@ -28,17 +28,15 @@ public class ImageFit extends ImageAtt {
         System.out.println("imageFit");
         System.out.println(imageFit);
         System.out.println(imageFit);
-        if (imageFit == "BoxFit.cover") {
+        if (imageFit.equalsIgnoreCase("BoxFit.cover")) {
             fit = "cover";
-        } else if (imageFit == "BoxFit.fill") {
+        } else if (imageFit.equalsIgnoreCase("BoxFit.fill")) {
             fit = "fill";
         } else {
             fit = "contain";
         }
 
-        String top = " style = ' object-fit: " + fit + ";' ";
-
-        return top;
+        return " style = ' object-fit: " + fit + ";' ";
     }
 
 }

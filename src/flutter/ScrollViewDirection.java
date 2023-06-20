@@ -23,9 +23,9 @@ public class ScrollViewDirection extends ScrollViewAtt {
     @Override
     public String codeGenerationImp() {
         String top ="";
-        if(scrollDirection=="horizontal"){
-            top=top.concat("d-flex flex-column");
-        }else if (scrollDirection=="vertical"){
+        if(scrollDirection.equalsIgnoreCase("horizontal")){
+            top=top.concat("d-flex flex-row");
+        }else if (scrollDirection.equalsIgnoreCase("vertical")){
             top=top.concat("d-flex flex-column");
         }
 

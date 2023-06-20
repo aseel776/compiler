@@ -23,6 +23,16 @@ public class Button_OnTap_unnamedFunction extends Button_OnTap{
 
     @Override
     public String codeGenerationImp() {
-        return unnamedFunction.toJs();
+        String top ="";
+
+        top=top.concat("<script>");
+
+        top=top.concat("var parentDiv = document.currentScript.parentNode;");
+
+        top=top.concat("parentDiv.addEventListener('click',"+ unnamedFunction.toJs()+");" );
+
+        top=top.concat("</script>");
+
+        return top;
     }
 }

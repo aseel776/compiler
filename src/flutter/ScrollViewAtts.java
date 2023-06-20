@@ -49,9 +49,9 @@ public class ScrollViewAtts extends Parameters {
         String child = "";
 
         for (int i = 0; i < atts.size(); i++) {
-            if (atts.get(i).getClass().getName() == "flutter.ScrollViewChild") {
+            if (atts.get(i).getClass().getName().equalsIgnoreCase("flutter.ScrollViewDirection")) {
                 direction = direction.concat(atts.get(i).codeGenerationImp());
-            } else if (atts.get(i).getClass().getName() == "flutter.ScrollViewDirection") {
+            } else if (atts.get(i).getClass().getName().equalsIgnoreCase("flutter.ScrollViewChild")) {
                 child = child.concat(atts.get(i).codeGenerationImp());
             }
         }

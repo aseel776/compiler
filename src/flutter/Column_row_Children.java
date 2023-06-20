@@ -1,6 +1,7 @@
 package flutter;
 
 import nodes.DartList;
+import nodes.Node;
 
 public  class Column_row_Children extends Column_rowAtt{
 
@@ -24,7 +25,9 @@ public  class Column_row_Children extends Column_rowAtt{
     @Override
     public String codeGenerationImp() {
         String top= Utils.setCommentWidgetName("Column_row_Children", this.hashCode());
-        top =top.concat(list.codeGenerationImp());
+        for (Node n: list.elements) {
+            top = top.concat(n.codeGenerationImp() + '\n');
+        }
         return top;
     }
 }

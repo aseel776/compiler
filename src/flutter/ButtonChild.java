@@ -25,7 +25,8 @@ public class ButtonChild extends ButtonAtt{
     @Override
     public String codeGenerationImp() {
         String top = Utils.setCommentWidgetName("ButtonChild", this.hashCode());
-        top.concat(object.codeGenerationImp());
+
+        top =top.concat(object.codeGenerationImp());
         top =top.concat("\n");
         return top;
     }

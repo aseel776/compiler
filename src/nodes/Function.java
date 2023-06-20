@@ -62,7 +62,17 @@ public class Function extends Statement{
             str = str.concat("\n?>");
             return str;
         } else{
-            return functionBody.returnStatement.codeGenerationImp();
+            if(!functionBody.statements.isEmpty()){
+                String str = "<script>\n";
+                for(Statement s : functionBody.statements){
+                    str = str.concat(s.toJs() + "\n");
+                }
+                str = str.concat("</script>\n");
+                str = str.concat(functionBody.returnStatement.returnValue.codeGenerationImp());
+                return str;
+            }else{
+                return functionBody.returnStatement.returnValue.codeGenerationImp();
+            }
         }
 
     }

@@ -42,10 +42,12 @@ public class Image extends Component {
         String top = Utils.setCommentWidgetName("Image", this.hashCode());
         String atts;
         if (imageAtts != null) {
+            System.out.println(1);
             atts = imageAtts.codeGenerationImp();
             top = top.concat("\n<img src=" + src + " "  + atts + " >");
+        }else{
+            top = top.concat("\n<img  src=" + src + ">");
         }
-        top = top.concat("\n<img  src=" + src + ">");
         return top;
     }
 }

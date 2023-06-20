@@ -46,7 +46,9 @@ public class ImageAtts extends Parameters {
     public String codeGenerationImp() {
         String top = "";
         for (int i = 0; i < atts.size(); i++) {
-            top = top.concat(atts.get(i).toString());
+            System.out.println(2);
+            System.out.println(atts.get(i).getClass());
+            top = top.concat(atts.get(i).codeGenerationImp());
         }
         return top;
     }

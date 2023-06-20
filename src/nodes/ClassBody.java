@@ -1,5 +1,7 @@
 package nodes;
 
+import flutter.Component;
+
 import java.util.List;
 
 public class ClassBody extends Node{
@@ -61,6 +63,39 @@ public class ClassBody extends Node{
             str = str.concat(method.codeGenerationImp() + '\n');
         }
         str = str.concat("}");
+        return str;
+    }
+
+    @Override
+    public String toJs() {
+        String str = "";
+        NormalClassMethod build = null;
+        if(!attributes.isEmpty() || !methods.isEmpty()){
+            str = "<script>\n";
+            for (ClassAttribute att: attributes) {
+                str = str.concat(att.toJs() + '\n');
+            }
+            for (ClassMethod method: methods) {
+                if(method instanceof NormalClassMethod normalClassMethod){
+                    if(normalClassMethod.methodBody.returnStatement.returnValue instanceof Component){
+                        System.out.println("found");
+                        build = normalClassMethod;
+                    } else{
+                        str = str.concat(method.toJs() + '\n');
+                    }
+                }
+            }
+            str = str.concat("</script> \n");
+            if(build != null && !build.methodBody.statements.isEmpty()){
+                str = str.concat("<script> \n");
+                for (Statement s: build.methodBody.statements){
+                    str = str.concat(s.toJs() + '\n');
+                }
+                str = str.concat("<script> \n");
+            }
+            assert build != null;
+            str = str.concat(build.methodBody.returnStatement.returnValue.codeGenerationImp());
+        }
         return str;
     }
 }

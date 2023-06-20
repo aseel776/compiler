@@ -1,6 +1,7 @@
 package flutter;
 
 import nodes.DartList;
+import nodes.Node;
 
 public class StackChildren extends StackAtt{
 
@@ -31,7 +32,9 @@ public class StackChildren extends StackAtt{
         String top = Utils.setCommentWidgetName("StackChildren", this.hashCode());
         top =top.concat("<div"+Utils.setClassesNames(classes)+">");
         top =top.concat("\n");
-        top =top.concat(list.toJs());
+        for(Node n : list.elements){
+            top = top.concat(n.codeGenerationImp() + "\n");
+        }
         top =top.concat("\n");
         top =top.concat("</div>");
         return top;
