@@ -24,7 +24,7 @@ public class ButtonColor extends ButtonAtt{
     @Override
     public String codeGenerationImp() {
         String top = Utils.setCommentWidgetName("ButtonColor", this.hashCode());
-        top = Utils.addClassToParentElementByScript(top, "bg-" + Utils.getBootstrapColor(color));
+        top = Utils.addClassToParentElementByScript(top, "'bg-" + Utils.getBootstrapColor(color) + "'");
         return top;
     }
 }
