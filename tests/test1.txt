@@ -1,97 +1,103 @@
-class productPage extends StatelessWidget{
-
-    int i = 0;
-
-    testFun(){
-        i = i + 1;
-        return;
-    }
-
-    build() {
+class Page1 extends StatelessWidget{
+    build(){
         return new MaterialApp(
             title: 'Page1',
             home: new Scaffold(
-            backgroundColor: Red,
-            body:new Row(
-                mainAxisAlignment: spaceBetween
-                children: [
-                    new Column(
-                        children: [
-                            new Text(
-                                'Product',
-                                textSize: 24,
-                                textStyle: Bold
-                            ),
-                            new SizedBox(
-                                sizedBoxHeight: 10,
-                            ),
-                            new Image(
-                                'pathToImage',
-                                fit: BoxFit.fill,
-                            ),
-                            new  SizedBox(
-                                sizedBoxHeight: 10,
-                            ),
-                            new Text(
-                                'ProductDescription',
-                                textSize: 16,
-                                textStyle: Italic
+                backgroundColor: White,
+                body: new Column(
+                    children:[
+                        new Container (
+                            containerChild: new Image(
+                                'https://www.pexels.com/photo/green-tree-268533/',
+                                imageHeight: 100,
+                                fit: BoxFit.cover
                             )
-                        ],
-                    ),
-                    new Padding(
-                        values: Values.symmetric(horizontal: 2),
-                        paddingChild: new ScrollView(
-                            scrollDirection: horizontal,
-                            scrollChild: new Column(
-                                children: [
-                                   new InkWell(
-                                               inkWellOnTap: () {
-                                                testFun();
-                                               },
-                                               inkWellChild: new Container(
-                                                   containerChild: new Column(
-                                                       children: [
-                                                           new Text('Product'),
-                                                           new Image(
-                                                               'Image',
-                                                               fit: BoxFit.cover,
-                                                           )
-                                                       ],
-                                                   mainAxisAlignment: spaceBetween,
-                                                   crossAxisAlignment: center
-                                               ),
-                                           ),
-                                         ),
-                                    new InkWell(
-                                                inkWellOnTap: () {},
-                                                inkWellChild: new Container(
-                                                    containerChild: new Column(
-                                                        children: [
-                                                            new Text('Product'),
-                                                            new Image(
-                                                                'Image',
-                                                                fit: BoxFit.cover,
-                                                            )
-                                                        ],
-                                                    mainAxisAlignment: spaceBetween,
-                                                    crossAxisAlignment: center
-                                                ),
-                                            ),
-                                          )
-                                ],
-                            )
+                        ),
+                        new SizedBox(
+                            sizedBoxHeight: 20
+                        ),
+                        new Button(
+                            buttonColor: Yellow,
+                            buttonChild: new Text('Back'),
+                            buttonOnTap: (){
+                                Navigator.pop
+                            }
                         )
-                    )
-                ],
-            ),
-        )
+                    ]
+                )
+            )
         );
     }
 }
 
-void main(){
-    var page = new productPage();
-    page.build();
-    return;
+class Page2 extends StatelessWidget{
+    build(){
+        return new MaterialApp(
+            title: 'Page2',
+            home: new Scaffold(
+                backgroundColor: White,
+                body: new Column(
+                    children:[
+                        new Container (
+                            containerChild: new Image(
+                                'https://www.pexels.com/photo/green-tree-268533/',
+                                imageHeight: 100,
+                                fit: BoxFit.cover
+                            )
+                        ),
+                        new SizedBox(
+                            sizedBoxHeight: 20
+                        ),
+                        new Button(
+                            buttonColor: Red,
+                            buttonChild: new Text('Back'),
+                            buttonOnTap: (){
+                                Navigator.pop
+                            }
+                        )
+                    ]
+                )
+            )
+        );
+    }
+}
+
+class mainPage extends StatelessWidget{
+    build(){
+        return new MaterialApp(
+            title: 'MainPage',
+            home: new Scaffold(
+                backgroundColor: White,
+                body: new ScrollView(
+                    scrollDirection: horizontal,
+                    scrollChild: new Column(
+                        mainAxisAlignment: center,
+                        children: [
+                            new Button(
+                                buttonColor: Yellow,
+                                buttonChild: new Text('Button1'),
+                                buttonOnTap: (){
+                                    Navigator.push(
+                                        new Page1(), args: {'name':'Page1'}
+                                    )
+                                }
+                            ),
+                            new SizedBox(
+                                sizedBoxHeight: 10,
+                            ),
+                            new Button(
+                                buttonColor: Red,
+                                buttonChild: new Text('Button2'),
+                                buttonOnTap: (){
+                                    Navigator.push(
+                                        new Page2(), args: {'name':'Page2'}
+                                    )
+                                }
+                            )
+                        ]
+                    ),
+                ),
+            ),
+        );
+    }
 }
