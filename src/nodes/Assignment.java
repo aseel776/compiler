@@ -31,7 +31,7 @@ public class Assignment extends Statement{
         if (!errorCheck.a) {
             AntlrToNode.semanticErrors.add("Error: variable " + id + " at line " + line + " is not defined");
         }else{
-            if(leftType != Type.dynamic){
+            if(leftType != Type.dynamic && TypeIdentifier.getNodeType(value) != Type.undefined){
                 boolean typeMatch = TypeIdentifier.typeMatch(symbolTableInstance, value);
                 if(!typeMatch){
                     Type rightType = TypeIdentifier.getNodeType(value);

@@ -17,7 +17,7 @@ public class Main {
     public static void main(String[] args){
         SymbolTable.table.add(new SymbolTableInstance("StatelessWidget", 0, "Predefined Class", -1, Type.Class));
         SymbolTable.table.add(new SymbolTableInstance("StatefulWidget", 0, "Predefined Class", -1, Type.Class));
-        String source = "./tests/tttt.txt";
+        String source = "./tests/test3.txt";
         CharStream input;
         try {
             input = CharStreams.fromFileName(source);
