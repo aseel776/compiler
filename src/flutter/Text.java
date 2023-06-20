@@ -1,6 +1,5 @@
 package flutter;
 
-import nodes.Node;
 import nodes.ZeroParameters;
 
 public class Text extends Component {

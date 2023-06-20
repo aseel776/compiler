@@ -1,6 +1,5 @@
 package flutter;
 
-import java.io.Console;
 
 public class ImageFit extends ImageAtt {
 

@@ -9,8 +9,6 @@ import symbolTable.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.transform.SourceLocator;
-
 public class AntlrToNode extends DartGrammarsBaseVisitor<Node> {
 
     static public List<String> semanticErrors;
