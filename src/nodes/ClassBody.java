@@ -92,7 +92,7 @@ public class ClassBody extends Node{
                 for (Statement s: build.methodBody.statements){
                     str = str.concat(s.toJs() + '\n');
                 }
-                str = str.concat("<script> \n");
+                str = str.concat("</script> \n");
             }
             assert build != null;
             str = str.concat(build.methodBody.returnStatement.returnValue.codeGenerationImp());

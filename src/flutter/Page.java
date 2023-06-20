@@ -41,7 +41,8 @@ public class Page extends Node {
     @Override
     public String codeGenerationImp() {
 
-        String top = Utils.setCommentWidgetName("Page", 123123213);
+        // String top = Utils.setCommentWidgetName("Page", 123123213);
+        String top = "";
         String formName = "myForm_" + this.hashCode();
         top = top.concat("const " + formName + " = document.createElement('form');\n");
         top = top.concat(formName + ".action = '" + route.codeGenerationImp() + "';\n");
@@ -49,11 +50,19 @@ public class Page extends Node {
         top = top.concat(formName + ".method = 'POST';\n");
         if (map != null) {
             for (int i = 0; i < map.elements.size(); i++) {
-                top = top.concat("const " + map.elements.get(i).a + " = document.createElement('input')\n");
-                top = top.concat(map.elements.get(i).a + ".type = 'hidden';\n");
-                top = top.concat(map.elements.get(i).a + ".name = '" + map.elements.get(i).a + "';\n");
-                top = top.concat(map.elements.get(i).a + ".value = '" + map.elements.get(i).b + "';\n");
-                top = top.concat(formName + ".appendChild(" + map.elements.get(i).a + ");\n");
+                String key = map.elements.get(i).a.replace('\'', ' ');
+                key = key.trim();
+                key = "custome_" + key;
+                String value = map.elements.get(i).b.toJs();
+                value = value.replace("\'", " ");
+                value = value.replace("\"", " ");
+                value = value.trim();
+                // value = "\'" + value + "\'";
+                top = top.concat("const " + key + " = document.createElement('input')\n");
+                top = top.concat(key + ".type = 'hidden';\n");
+                top = top.concat(key + ".name = '"+ key + "';\n");
+                top = top.concat(key + ".value = '" + value + "';\n");
+                top = top.concat(formName + ".appendChild(" +key+ ");\n");
 
             }
         }

@@ -21,6 +21,7 @@ public class Characters extends Node{
     @Override
     public String codeGenerationImp() {
         return "\"" + text + "\"";
+        
     }
 
     @Override

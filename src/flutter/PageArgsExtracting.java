@@ -33,6 +33,23 @@ public class PageArgsExtracting extends Statement {
 
     @Override
     public String codeGenerationImp() {
-        return null;
+    return this.toJs(); 
+    }
+
+    @Override
+    public String toJs() {
+        String temp;
+        temp = """
+            </script> 
+            <?php $map = $_POST ;
+            foreach ($map as $a){
+                echo $a;
+                echo '<br>;;'
+            }
+            
+            ?>
+            <script> 
+                """;
+        return temp ; 
     }
 }
