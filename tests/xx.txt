@@ -36,9 +36,11 @@ class productPage extends StatelessWidget{
                                 scrollDirection: horizontal,
                                 scrollChild: new Column(
                                     children: [
-                                        productCard(),
-                                        productCard(),
-                                        productCard()
+                                        new Text(
+                                                                            'ProductDescription',
+                                                                            textSize: 16,
+                                                                            textStyle: Italic
+                                                                        )
                                     ],
                                 )
                             )

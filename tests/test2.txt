@@ -22,7 +22,10 @@ class Page1 extends StatelessWidget{
                             new Row (
                                 children: [
                                     new Button(
-                                        buttonOnTap: (){},
+                                        buttonOnTap: (){
+                                            int i = 0;
+                                            i = i + 1;
+                                        },
                                         buttonChild: new Text(
                                             'ReturnToProductPage',
                                             textColor: Blue,

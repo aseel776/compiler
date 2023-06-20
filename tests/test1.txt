@@ -1,26 +1,16 @@
 class productPage extends StatelessWidget{
 
-    productCard() {
-        return new InkWell(
-            inkWellOnTap: () {},
-            inkWellChild: new Container(
-                containerChild: new Column(
-                    children: [
-                        new Text('Product'),
-                        new Image(
-                            'Image',
-                            fit: BoxFit.cover,
-                        )
-                    ],
-                mainAxisAlignment: spaceBetween,
-                crossAxisAlignment: center
-            ),
-        ),
-      );
+    int i = 0;
+
+    testFun(){
+        i = i + 1;
+        return;
     }
 
     build() {
-        return new Scaffold(
+        return new MaterialApp(
+            title: 'Page1',
+            home: new Scaffold(
             backgroundColor: Red,
             body:new Row(
                 mainAxisAlignment: spaceBetween
@@ -55,15 +45,47 @@ class productPage extends StatelessWidget{
                             scrollDirection: horizontal,
                             scrollChild: new Column(
                                 children: [
-                                    productCard(),
-                                    productCard(),
-                                    productCard()
+                                   new InkWell(
+                                               inkWellOnTap: () {
+                                                testFun();
+                                               },
+                                               inkWellChild: new Container(
+                                                   containerChild: new Column(
+                                                       children: [
+                                                           new Text('Product'),
+                                                           new Image(
+                                                               'Image',
+                                                               fit: BoxFit.cover,
+                                                           )
+                                                       ],
+                                                   mainAxisAlignment: spaceBetween,
+                                                   crossAxisAlignment: center
+                                               ),
+                                           ),
+                                         ),
+                                    new InkWell(
+                                                inkWellOnTap: () {},
+                                                inkWellChild: new Container(
+                                                    containerChild: new Column(
+                                                        children: [
+                                                            new Text('Product'),
+                                                            new Image(
+                                                                'Image',
+                                                                fit: BoxFit.cover,
+                                                            )
+                                                        ],
+                                                    mainAxisAlignment: spaceBetween,
+                                                    crossAxisAlignment: center
+                                                ),
+                                            ),
+                                          )
                                 ],
                             )
                         )
                     )
                 ],
             ),
+        )
         );
     }
 }

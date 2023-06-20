@@ -22,6 +22,12 @@ public class NavigationPushing extends Navigation{
 
     @Override
     public String codeGenerationImp() {
-        return null;
+        System.out.println("xxxxxxxxxxx");
+        return page.codeGenerationImp();
+    }
+
+    @Override
+    public String toJs() {
+        return page.codeGenerationImp();
     }
 }

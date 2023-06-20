@@ -1,0 +1,32 @@
+
+
+class page2 extends StatelessWidget{
+    build(){
+        return new MaterialApp(
+            title: 'Page2',
+            home: new Scaffold(
+                backgroundColor: Red,
+                body: new Button(
+                buttonChild: new Text('test'),
+                buttonOnTap: (){
+                    Navigator.pop
+                }
+                )
+            )
+        );
+    }
+}
+class page1 extends StatelessWidget{
+    build(){
+        int i = 0;
+        return new MaterialApp(
+            title: 'Page1',
+            home: new Button(
+                buttonChild: new Text('test'),
+                buttonOnTap: (){
+                    Navigator.push(new page2())
+                }
+            )
+        );
+    }
+}

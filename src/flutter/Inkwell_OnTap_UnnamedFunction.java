@@ -2,12 +2,12 @@ package flutter;
 
 import nodes.UnnamedFunction;
 
-public class Inkwell_OnTap_UnnamedFunction extends Inkwell_OnTap{
+public class Inkwell_OnTap_UnnamedFunction extends Inkwell_OnTap {
 
     public UnnamedFunction unnamedFunction;
 
-    public Inkwell_OnTap_UnnamedFunction(UnnamedFunction unnamedFunction){
-        this.unnamedFunction=unnamedFunction;
+    public Inkwell_OnTap_UnnamedFunction(UnnamedFunction unnamedFunction) {
+        this.unnamedFunction = unnamedFunction;
     }
 
     @Override
@@ -24,6 +24,16 @@ public class Inkwell_OnTap_UnnamedFunction extends Inkwell_OnTap{
 
     @Override
     public String codeGenerationImp() {
-        return unnamedFunction.toJs();
+        String top = "";
+
+        top = top.concat("<script>");
+
+        top = top.concat("var parentDiv = document.currentScript.parentNode;");
+
+        top = top.concat("parentDiv.addEventListener('click'," + unnamedFunction.toJs() + ");");
+
+        top = top.concat("</script>");
+
+        return top;
     }
 }

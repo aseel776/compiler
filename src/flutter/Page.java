@@ -40,10 +40,12 @@ public class Page extends Node {
 
     @Override
     public String codeGenerationImp() {
-        String top = "\n";
+
+        String top = Utils.setCommentWidgetName("Page", 123123213);
         String formName = "myForm_" + this.hashCode();
         top = top.concat("const " + formName + " = document.createElement('form');\n");
-        top = top.concat(formName + ".action = '" + route + "';\n");
+        top = top.concat(formName + ".action = '" + route.codeGenerationImp() + "';\n");
+        // top = top.concat(route.codeGenerationImp() +"  \n");
         top = top.concat(formName + ".method = 'POST';\n");
         if (map != null) {
             for (int i = 0; i < map.elements.size(); i++) {
@@ -52,8 +54,11 @@ public class Page extends Node {
                 top = top.concat(map.elements.get(i).a + ".name = '" + map.elements.get(i).a + "';\n");
                 top = top.concat(map.elements.get(i).a + ".value = '" + map.elements.get(i).b + "';\n");
                 top = top.concat(formName + ".appendChild(" + map.elements.get(i).a + ");\n");
+
             }
         }
+        top = top.concat("document.body.appendChild(" + formName + ");\n");
+
         top = top.concat(formName + ".submit();\n");
         return top;
     }

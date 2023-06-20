@@ -56,7 +56,7 @@ public class FunctionBody extends Block {
     @Override
     public String toJs() {
         String str = "{\n";
-        for (Statement s: statements) {
+        for (Statement s : statements) {
             str = str.concat(s.toJs() + "\n");
         }
         if(returnStatement != null){

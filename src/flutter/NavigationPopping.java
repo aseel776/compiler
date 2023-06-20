@@ -14,10 +14,20 @@ public class NavigationPopping extends Navigation{
 
     @Override
     public String codeGenerationImp() {
-        return"""
-                    header('Location: ' . $_SERVER['HTTP_REFERER']); \n
-                    exit();
-             """;
-        
+        return """
+                       header('Location: ' . $_SERVER['HTTP_REFERER']); \n
+                       exit();
+                """;
+
+    }
+      @Override
+    public String toJs() {
+        return """
+            window.location.replace(document.referrer);
+                 
+                """;
     }
 }
+
+    //   header('Location: ' . $_SERVER['HTTP_REFERER']); \n
+                    //    exit();

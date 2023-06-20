@@ -46,6 +46,7 @@ public class UnnamedFunction extends Node{
         String str = "(";
         str = str.concat(arguments.toJs());
         str = str.concat(") => " + functionBody.toJs());
+        System.out.println(str);
         return str;
     }
 }
