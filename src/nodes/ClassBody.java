@@ -78,8 +78,7 @@ public class ClassBody extends Node{
             for (ClassMethod method: methods) {
                 if (method instanceof NormalClassMethod normalClassMethod) {
                     Node v = normalClassMethod.methodBody.returnStatement.returnValue;
-                    if(v != null && v instanceof Component){
-                        System.out.println("found");
+                    if(v instanceof Component){
                         build = normalClassMethod;
                     } else{
                         str = str.concat(method.toJs() + '\n');

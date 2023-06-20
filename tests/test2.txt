@@ -1,0 +1,30 @@
+class xx extends StatefulWidget{
+
+    int i = 1;
+
+    build(){
+        return new MaterialApp(
+            title: 'SetState',
+            home: new Scaffold(
+                backgroundColor: White,
+                body: new Column(
+                    children: [
+                        new Text(i),
+                        new SizedBox(
+                            sizedBoxHeight: 10,
+                        ),
+                        new Button(
+                            buttonChild : new Text('increment'),
+                            buttonOnTap : (){
+                                setState((){
+                                    i = i + 1;
+                                })
+                            }
+                        )
+                    ]
+                )
+            ),
+        );
+    }
+
+}

@@ -1,5 +1,6 @@
 class Page1 extends StatelessWidget{
     build(){
+        var x = Route.args
         return new MaterialApp(
             title: 'Page1',
             home: new Scaffold(
@@ -8,7 +9,7 @@ class Page1 extends StatelessWidget{
                     children:[
                         new Container (
                             containerChild: new Image(
-                                'https://www.pexels.com/photo/green-tree-268533/',
+                                'https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg',
                                 imageHeight: 100,
                                 fit: BoxFit.cover
                             )
@@ -31,7 +32,9 @@ class Page1 extends StatelessWidget{
 }
 
 class Page2 extends StatelessWidget{
+
     build(){
+        var x = Route.args
         return new MaterialApp(
             title: 'Page2',
             home: new Scaffold(
@@ -40,7 +43,7 @@ class Page2 extends StatelessWidget{
                     children:[
                         new Container (
                             containerChild: new Image(
-                                'https://www.pexels.com/photo/green-tree-268533/',
+                                'https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg',
                                 imageHeight: 100,
                                 fit: BoxFit.cover
                             )
@@ -63,6 +66,13 @@ class Page2 extends StatelessWidget{
 }
 
 class mainPage extends StatelessWidget{
+
+    void test(){
+        int i = 0;
+        i = i +1;
+        return;
+    }
+
     build(){
         return new MaterialApp(
             title: 'MainPage',
@@ -78,7 +88,7 @@ class mainPage extends StatelessWidget{
                                 buttonChild: new Text('Button1'),
                                 buttonOnTap: (){
                                     Navigator.push(
-                                        new Page1(), args: {'name':'Page1'}
+                                        new Page1(), args: {'name':'jhgfgtuu', 'age':'18'}
                                     )
                                 }
                             ),

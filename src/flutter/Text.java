@@ -1,20 +1,21 @@
 package flutter;
 
+import nodes.Node;
 import nodes.ZeroParameters;
 
 public class Text extends Component {
 
-    public String text;
+    public Node text;
 
     public TextAtts textAtts;
 
-    public Text(String text, TextAtts atts) {
+    public Text(Node text, TextAtts atts) {
         super("Text", atts);
         this.text =text;
         this.textAtts = atts;
     }
 
-    public Text(String text){
+    public Text(Node text){
         super("Text", new ZeroParameters());
         this.text = text;
     }
@@ -43,7 +44,7 @@ public class Text extends Component {
 
         String top  = Utils.setCommentWidgetName("Text", this.hashCode());
         top =top.concat("<div>");
-        String editedText = text.replace('\'', ' ');
+        String editedText = text.toJs().replace('\'', ' ');
         top =top.concat(editedText);
         if(textAtts!= null){
             top =top.concat(textAtts.codeGenerationImp());

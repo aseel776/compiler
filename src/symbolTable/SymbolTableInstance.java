@@ -1,5 +1,6 @@
 package symbolTable;
 
+import nodes.Node;
 import utils.Type;
 
 public class SymbolTableInstance {
@@ -10,7 +11,7 @@ public class SymbolTableInstance {
     public int declarationLineNumber;
 
     public Type type;
-
+    public Node value;
     public SymbolTableInstance(String id,
                                Integer parentHash,
                                String category,

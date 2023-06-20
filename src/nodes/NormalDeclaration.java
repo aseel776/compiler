@@ -29,6 +29,9 @@ public class NormalDeclaration extends Declaration{
         Type leftType = type != null ? TypeIdentifier.getType(type) : Type.dynamic;
         int parentHash = SymbolTableTraveller.currentNode.objectHash;
         SymbolTableInstance currentElement = new SymbolTableInstance(id, parentHash, "Variable", line, leftType);
+        if(init != null){
+            currentElement.value = init.value;
+        }
         Pair<Boolean, Integer> errorCheck = SymbolTableTraveller.checkIfDefined(currentElement);
         if (errorCheck.a) {
             AntlrToNode.semanticErrors.add("Error: variable " + id + " at line " + line + " is already defined at line " + errorCheck.b);

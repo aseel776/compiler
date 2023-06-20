@@ -1028,7 +1028,22 @@ public class AntlrToNode extends DartGrammarsBaseVisitor<Node> {
     // error
     @Override
     public Node visitText(DartGrammarsParser.TextContext ctx) {
-        String text = ctx.getChild(3).getText();
+        Node text;
+        if(ctx.getChild(3) == ctx.CHARACTERS()){
+        text = new Characters(ctx.getChild(3).getText());
+        }else if(ctx.getChild(3) == ctx.ID()){
+            text = new Variable(ctx.getChild(3).getText());
+            for (SymbolTableInstance s: SymbolTable.table) {
+                Variable v = (Variable) text;
+                if(s.id.equalsIgnoreCase(v.id)){
+                    ((Variable) text).value = s.value;
+                    break;
+                }
+            }
+
+        }else{
+            text = new Characters("dump");
+        }
         if (ctx.getChildCount() > 5) {
             TextAtts atts = new TextAtts();
             for (int i = 5; i < ctx.getChildCount() - 1; i++) {

@@ -44,7 +44,7 @@ public class PageArgsExtracting extends Statement {
             <?php $map = $_POST ;
             foreach ($map as $a){
                 echo $a;
-                echo '<br>;;'
+                    echo '<br>';
             }
             
             ?>

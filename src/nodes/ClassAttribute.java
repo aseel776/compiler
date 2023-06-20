@@ -3,6 +3,7 @@ package nodes;
 public class ClassAttribute extends Node {
     public Boolean isStatic;
     public Declaration declaration;
+    public Node value;
 
     public ClassAttribute(Boolean isStatic, Declaration declaration){
         this.isStatic = isStatic;

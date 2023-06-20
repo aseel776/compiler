@@ -10,6 +10,7 @@ import symbolTable.SymbolTableInstance;
 public class Variable extends Expression{
 
     public String id;
+    public Node value;
 
     public Variable(String id){
         this.id = id;
